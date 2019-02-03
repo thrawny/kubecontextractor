@@ -1,23 +1,25 @@
 package cmd
 
 import (
-	"fmt"
 	"github.com/spf13/cobra"
-	"os"
+	"k8s.io/cli-runtime/pkg/genericclioptions"
 )
 
+var context string
+var kubeConfig string
+
 var rootCmd = &cobra.Command{
-	Use:   "foo",
-	Short: "foo",
-	Long:  "foo",
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("hai dear")
-	},
+	Use:   "extract",
+	Short: "Extract extracts objects like contexts from a kubeconfig file",
 }
 
-func Execute() {
-	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
+func init() {
+	flags := genericclioptions.ConfigFlags{KubeConfig: &kubeConfig, Context: &context}
+	flags.AddFlags(rootCmd.PersistentFlags())
+
+	rootCmd.AddCommand(contextCmd)
+}
+
+func Execute() error {
+	return rootCmd.Execute()
 }
