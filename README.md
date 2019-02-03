@@ -1,6 +1,7 @@
 # kubectl-extract
 
-[![CircleCI](https://circleci.com/gh/thrawny/kubectl-extract.svg?style=svg)](https://circleci.com/gh/thrawny/kubectl-extract)
+[![CircleCI](https://circleci.com/gh/thrawny/kubectl-extract.svg?style=svg)](https://circleci.com/gh/thrawny/kubectl-extract) 
+[![Go Report Card](https://goreportcard.com/badge/github.com/thrawny/kubectl-extract)](https://goreportcard.com/report/github.com/thrawny/kubectl-extract)
 
 Kubectl plugin to extract a kubernetes context including authinfo, cluster and namespace.
 Useful to quickly share with others.
