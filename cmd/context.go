@@ -23,11 +23,17 @@ var contextCmd = &cobra.Command{
 		if contextName == "" {
 			contextName = kubeConfig.CurrentContext
 		}
+
 		newConfig, err := extract.Context(contextName, kubeConfig)
 		if err != nil {
 			return err
 		}
+
 		content, err := clientcmd.Write(*newConfig)
+		if err != nil {
+			return err
+		}
+
 		fmt.Print(string(content))
 		return nil
 	},
