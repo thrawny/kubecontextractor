@@ -2,8 +2,8 @@
 
 [![CircleCI](https://circleci.com/gh/thrawny/kubectl-extract.svg?style=svg)](https://circleci.com/gh/thrawny/kubectl-extract)
 
-Kubectl plugin to extract a kubernetes context including authinfo, cluster, namespace.
-Useful to quickly share quickly with others.
+Kubectl plugin to extract a kubernetes context including authinfo, cluster and namespace.
+Useful to quickly share with others.
 
 ## Installation
 ```bash
