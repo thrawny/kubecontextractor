@@ -12,8 +12,17 @@ go get -u github.com/thrawny/kubectl-extract
 ```
 
 ## Usage
-Kubectl >= 1.12 has plugin support and the program can then be called using `kubectl extract context`.
-Otherwise call with `kubectl-extract-context`.
+Kubectl >= 1.12 has plugin support and the program can then be called using:
+```
+kubectl extract context
+```
+
+Otherwise call with:
+```
+kubectl-extract context
+```
+
+Example usage:
 ```bash
 kubectl extract context --context foo > fooconfig
 KUBECONFIG=./fooconfig kubectl get pods
