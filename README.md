@@ -1,29 +1,17 @@
 # kubectl-extract
 
-[![CircleCI](https://circleci.com/gh/thrawny/kubectl-extract.svg?style=svg)](https://circleci.com/gh/thrawny/kubectl-extract) 
-[![Go Report Card](https://goreportcard.com/badge/github.com/thrawny/kubectl-extract)](https://goreportcard.com/report/github.com/thrawny/kubectl-extract)
+## Don't use this
 
-Kubectl plugin to extract a kubernetes context including authinfo, cluster and namespace.
-Useful to quickly share with others.
-
-## Installation
+I threw this go cli together quickly and then found out that kubectl actually has this functionality built in, 
+albeit somewhat hidden. The command is:
 ```bash
-go get -u github.com/thrawny/kubectl-extract
+kubectl config view --minify=true --flatten --context foocontext
 ```
 
-## Usage
-Kubectl >= 1.12 has plugin support and the program can then be called using:
-```
-kubectl extract context
-```
-
-Otherwise call with:
-```
-kubectl-extract context
-```
-
-Example usage:
+These are the aliases I use now:
 ```bash
-kubectl extract context --context foo > fooconfig
-KUBECONFIG=./fooconfig kubectl get pods
+alias kubectl-extract-context='kubectl config view --minify=true --flatten --context'
+alias kec='kubectl-extract-context'
 ```
+
+Works really well with tab completion in zsh. If you type `kec` and `TAB` you will see a list of contexts.
